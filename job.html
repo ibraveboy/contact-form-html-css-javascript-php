@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anti Crime Jobs</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <div class="site">
+    <header>
+      <div class="topbar-cover">
+        <div class="top-bar">
+          <p id="date">
+            Sat. Feb 13th, 2021
+          </p>
+          <ul class="menu">
+            <li>
+              <a href="https://www.facebook.com/Anti-Crime-News-108204954302819/" target="_blank">
+                <img src="./img/fb-icon-1.png" alt="Anti Crime News Facebook Page" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UC_XMEB6dd5aId7CRRciV8Ug?sub_confirmation=1" target="_blank">
+                <img src="./img/twitter.png" alt="Anti Crime News Twitter Page" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/dailyanticrime/" target="_blank">
+                <img src="./img/insta.png" alt="Anti Crime News Instagram Page" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UC_XMEB6dd5aId7CRRciV8Ug?sub_confirmation=1" target="_blank">
+                <img src="./img/youtube.png" alt="Anti Crime News Youtube Channel" />
+              </a>
+            </li>
+            <ul>
+        </div>
+      </div>
+      <div class="brand-cover">
+        <div class="brand">
+          <div class="logo">
+            <img src="./img/anticrime-logo-new.png" alt="Anti Crime News Logo">
+          </div>
+        </div>
+      </div>
+      <div class="navbar-cover">
+        <div class="navbar">
+          <button class="toggler" onclick="toggleMenu(event);">
+            <span class="hamburger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+          <ul class="menu">
+            <li>
+              <a href="https://www.anticrime.pk/">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="https://www.anticrime.pk/submit-news/">
+                Submit News
+              </a>
+            </li>
+            <li>
+              <a href="https://www.anticrime.pk/about-us/">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="https://www.anticrime.pk/contact-us/">
+                Contact Us
+              </a>
+            </li>
+            <li>
+              <a href="https://www.anticrime.pk/privacy-policy/">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="https://www.anticrime.pk/terms-conditions/">
+                Terms & Conditions
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="content-cover">
+        <div class="content">
+          <article>
+            <header>
+              <h1>
+                Job
+              </h1>
+            </header>
+            <main>
+              <div class="content-body">
+                <div class="banner">
+                  <img src="./img/banner.jpeg" alt="Anti Crime Jobs Banner" />
+                </div>
+                <div class="apply-form">
+                  <form id="apply-form" onsubmit="onFormSubmitHandler(event);">
+                    <div class="form-group">
+                      <label>
+                        Full Name (Required)
+                      </label>
+                      <input type="text" name="full_name" id="full_name" oninput="onInputChangeHandler(event);">
+                    </div>
+                    <div class="form-group">
+                      <label>
+                        Address
+                      </label>
+                      <input type="text" name="address" id="address">
+                    </div>
+                    <div class="form-group">
+                      <label>
+                        Phone No. (Required)
+                      </label>
+                      <input type="text" name="phone" id="phone" oninput="onInputChangeHandler(event);">
+                    </div>
+                    <div class="form-group">
+                      <label>
+                        Qualification
+                      </label>
+                      <input type="text" name="qualification" id="qualification">
+                    </div>
+                    <div class="form-group">
+                      <label>
+                        Applying For
+                      </label>
+                      <select name="apply_for">
+                        <option value="">---</option>
+                        <option value="Bureau Chief">Bureau Chief</option>
+                        <option value="General Manager">General Manager</option>
+                        <option value="Marketing Manager">Marketing Manager</option>
+                        <option value="Assistant Manager">Assistant Manager</option>
+                        <option value="Marketing Surveyer">Marketing Surveyer</option>
+                        <option value="Circulation Manager">Circulation Manager</option>
+                        <option value="Reporter">Reporter</option>
+                        <option value="Call Operator">Call Operator</option>
+                        <option value="Computer Operator">Computer Operator</option>
+                        <option value="Clerk">Clerk</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Sub Editor">Sub Editor</option>
+                        <option value="Receptionist">Receptionist</option>
+                        <option value="Crime Reporter">Crime Reporter</option>
+                        <option value="Office Boy">Office Boy</option>
+                        <option value="Peon">Peon</option>
+                        <option value="Driver (LTV-HTV License Holder)">Driver (LTV-HTV License Holder)</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <input type="hidden" name="to" value="JOB@anticrime.pk">
+                    <button type="submit" value="Send">
+                      Send
+                      <span class="ajax-loader"></span>
+                    </button>
+                  </form>
+                  <p>
+                    For further details contact at 04236291626
+                  </p>
+                </div>
+              </div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        Copyright © Anti Crime 2015- 2020. All rights reserved. | Designed with ❤ by
+        <a href="http://zebuck.com">
+          ZeBuck
+        </a>
+      </div>
+    </footer>
+  </div>
+  <div style="position:fixed; right:50px; z-index:1; bottom:0px;">
+    <a href="https://www.youtube.com/channel/UC_XMEB6dd5aId7CRRciV8Ug?sub_confirmation=1"
+      onclick="javascript:window.open('https://www.youtube.com/channel/UC_XMEB6dd5aId7CRRciV8Ug?sub_confirmation=1'); return false;"><img
+        src="./img/watch-live.png" alt="Youtube Channel AntiCrime News"></a>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
