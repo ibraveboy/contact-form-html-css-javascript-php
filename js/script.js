@@ -47,6 +47,9 @@ function toSnakeCase(key) {
     case 'fullName':
       return 'full_name';
       break;
+    case 'applyFor':
+      return 'apply_for';
+      break;
     default:
       return key;
   }
@@ -59,7 +62,7 @@ function onFormSubmitHandler(e) {
   document.querySelectorAll('.invalid').forEach(input => {
     input.classList.remove('invalid');
   });
-  document.querySelectorAll('.danger').forEach(errorElem => {
+  document.querySelectorAll('.danger, .alert').forEach(errorElem => {
     errorElem.parentElement.removeChild(errorElem);
   });
   var ajaxLoader = document.querySelector('.ajax-loader');
@@ -74,6 +77,7 @@ function onFormSubmitHandler(e) {
   var requiredValues = {
     fullName,
     phone,
+    applyFor,
   };
   Object.keys(requiredValues).forEach(key => {
     if (!requiredValues[key].trim()) {
@@ -92,7 +96,10 @@ function onFormSubmitHandler(e) {
   }
   ajaxLoader.style.visibility = 'visible';
   ajaxLoader.style.display = 'inline-block';
-  fetch('/Final/message.php', {
+  var spinner = document.createElement('div');
+  spinner.classList.add('spinner');
+  document.body.appendChild(spinner);
+  fetch('/message.php', {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -108,16 +115,29 @@ function onFormSubmitHandler(e) {
   })
   .then(res => res.json())
   .then(res => {
+    var alert = document.createElement('div');
+    alert.classList.add('alert','radius');
     ajaxLoader.style = '';
     if (res.status === 'failed') {
-      alert(res.message);
+      alert.classList.add('alert-error');
+      alert.innerHTML = res.message;
+      document.querySelector('.form-group:nth-child(5)').append(alert);
+    } else if (res.status === 'success') {
+      alert.classList.add('alert-success');
+      alert.innerHTML = res.message;
+      document.querySelector('.form-group:nth-child(5)').append(alert);
+      document.querySelectorAll('input').forEach(input => {
+        if (input.name !== 'to') input.value = '';
+      });
+      document.body.removeChild(spinner);
     }
   })
   .catch(err => {
-    setTimeout(() => {
-      ajaxLoader.style = '';
-      alert('Something went wrong.');
-    },1000)
+    var alert = document.createElement('div');
+    alert.classList.add('alert','radius');
+    alert.classList.add('alert-error');
+    alert.innerHTML = 'Something went wrong.';
+    ajaxLoader.style = '';
   });
 }
 
